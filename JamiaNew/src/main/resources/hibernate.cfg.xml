@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- JDBC connection pool (use the built-in) -->
+		<property name="connection.pool_size">1</property>
+
+		<!-- re-create the database every time -->
+		<property name="hbm2ddl.auto">update</property>
+
+		<mapping class="in.jmi.model.User" />
+		<mapping class="in.jmi.model.Subject" />
+		<mapping class="in.jmi.model.Address" />
+		<mapping class="in.jmi.model.Student" />
+		<mapping class="in.jmi.model.DisqualifiedDescription" />
+		<mapping class="in.jmi.model.PlaceOfBirth" />
+
+	</session-factory>
+
+
+</hibernate-configuration>
