@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed>
+    <title>Meteorite Landings</title>
+    <entry>
+        <title>1</title>
+		<properties>
+			<name>Aachen</name>
+			<id>1</id>
+			<recclass>L5</recclass>
+			<mass>21</mass>
+			<fall>Fell</fall>
+			<year>1880-01-01T00:00:00</year>
+			<reclat>50.775000</reclat>
+			<reclong>6.083330</reclong>
+		</properties>
+    </entry>
+    <entry>
+        <title>2</title>
+		<properties>
+			<name>Aarhus</name>
+			<id>2</id>
+			<recclass>H6</recclass>
+			<mass>720</mass>
+			<fall>Fell</fall>
+			<year>1951-01-01T00:00:00</year>
+			<reclat>56.183330</reclat>
+			<reclong>10.233330</reclong>
+		</properties>
+    </entry>
+    <entry>
+        <title>3</title>
+		<properties>
+			<name>Abee</name>
+			<id>6</id>
+			<recclass>EH4</recclass>
+			<mass>107000</mass>
+			<fall>Fell</fall>
+			<year>1952-01-01T00:00:00</year>
+			<reclat>54.216670</reclat>
+			<reclong>-113.000000</reclong>
+		</properties>
+    </entry>
+</feed>

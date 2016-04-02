@@ -1,0 +1,6 @@
+com\rawsanj\readfile\config\ReadFileOnStartUp.class
+com\rawsanj\readfile\xmlmetadata\Properties.class
+com\rawsanj\readfile\ReadfileApplication.class
+com\rawsanj\readfile\xmlmetadata\Entry.class
+com\rawsanj\readfile\controller\HelloWorld.class
+com\rawsanj\readfile\xmlmetadata\Feed.class
