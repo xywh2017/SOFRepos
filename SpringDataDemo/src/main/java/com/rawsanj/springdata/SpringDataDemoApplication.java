@@ -1,7 +1,9 @@
 package com.rawsanj.springdata;
 
 import com.rawsanj.springdata.entity.Counter;
+import com.rawsanj.springdata.entity.GroupChatHeartBeat;
 import com.rawsanj.springdata.repository.CounterRepository;
+import com.rawsanj.springdata.repository.GroupChatHeartBeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -9,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @SpringBootApplication
@@ -17,11 +20,14 @@ public class SpringDataDemoApplication {
 	@Autowired
 	private CounterService counterService;
 
+    @Autowired
+    private GroupChatHeartBeatRepository groupChatHeartBeatRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringDataDemoApplication.class, args);
 	}
 
-	@Bean
+	@Bean // Answer to - http://stackoverflow.com/questions/39413693/counter-using-springs-jpa-repositories
 	CommandLineRunner getCommandLineRunner(){
 		return args -> {
 			// Add some data;
@@ -49,6 +55,32 @@ public class SpringDataDemoApplication {
 								+"\nLatest Value of Physics: "+ phyLatest.getValue());
 
 			System.out.println("Last Inserted Id:  "+counterService.getLastInsterted());
+		};
+	}
+
+	@Bean  // Answer to - http://stackoverflow.com/questions/39410341/how-to-update-values-associated-with-primary-key-in-spring-jpa
+	CommandLineRunner getAnotherCommandLineRunner(){
+		return args -> {
+
+		    // Save New
+            GroupChatHeartBeat grp = new GroupChatHeartBeat(new Date(), "http://www.google.com");
+            groupChatHeartBeatRepository.save(grp);
+
+            groupChatHeartBeatRepository.findAll().forEach(System.out::println);
+
+            // Update same object and save-> updates value of existing in database
+            grp.setUrl("http://spring.io");
+            groupChatHeartBeatRepository.save(grp);
+
+            groupChatHeartBeatRepository.findAll().forEach(System.out::println);
+
+            // Create New object, set Id of new object as old object and save-> updates value of existing in database
+            GroupChatHeartBeat grpUpdated = new GroupChatHeartBeat(new Date(638893800000L), "https://github.com/RawSanj");
+            grpUpdated.setId(grp.getId());
+            groupChatHeartBeatRepository.save(grpUpdated);
+
+            groupChatHeartBeatRepository.findAll().forEach(System.out::println);
+
 		};
 	}
 }
